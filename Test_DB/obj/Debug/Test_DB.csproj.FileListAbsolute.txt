@@ -1,0 +1,8 @@
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\obj\Debug\Test_DB.csprojResolveAssemblyReference.cache
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\obj\Debug\Test_DB.MainForm.resources
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\obj\Debug\Test_DB.csproj.GenerateResource.Cache
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\bin\Debug\Test_DB.exe.config
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\bin\Debug\Test_DB.exe
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\bin\Debug\Test_DB.pdb
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\obj\Debug\Test_DB.exe
+C:\Users\SoporteSEM\Documents\SharpDevelop Projects\Test_DB\Test_DB\obj\Debug\Test_DB.pdb
