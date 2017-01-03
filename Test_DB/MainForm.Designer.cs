@@ -15,7 +15,9 @@ namespace Test_DB
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Data.DataView dataView1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -39,7 +41,11 @@ namespace Test_DB
 		private void InitializeComponent()
 		{
 			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
+			this.button2 = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dataView1 = new System.Data.DataView();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -52,23 +58,44 @@ namespace Test_DB
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
-			// label1
+			// button2
 			// 
-			this.label1.Location = new System.Drawing.Point(24, 26);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(227, 132);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "label1";
+			this.button2.Location = new System.Drawing.Point(208, 227);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 4;
+			this.button2.Text = "button2";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(23, 12);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.dataGridView1.Size = new System.Drawing.Size(357, 150);
+			this.dataGridView1.TabIndex = 5;
+			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1CellContentClick);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 262);
-			this.Controls.Add(this.label1);
+			this.ClientSize = new System.Drawing.Size(822, 383);
+			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Name = "MainForm";
 			this.Text = "Test_DB";
+			this.Load += new System.EventHandler(this.MainFormLoad);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

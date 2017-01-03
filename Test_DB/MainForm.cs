@@ -77,7 +77,7 @@ namespace Test_DB
 				
 				/*Ejecuto la consulta y me traigo los datos al programa*/
 				MySqlDataAdapter adaptador;
-				adaptador = new MySqlDataAdapter("SELECT * FROM `sms`WHERE state=false",conexion);
+				adaptador = new MySqlDataAdapter("SELECT * FROM `sms`",conexion);
 				
 				/*Cargo los datos de la consulta en el DataSet con el nombre interno de tabla elegido*/
 				adaptador.Fill(dst,"Phone_Table");
@@ -87,17 +87,88 @@ namespace Test_DB
 				
 				
 				foreach (DataRow dr in dt.Rows){
-					if (dr["state"].ToString() == "FALSE"){
-						label1.Text=label1.Text + " // " + dr["number"];
+					if (dr["state"].ToString() == "TRUE"){
+						//label1.Text=label1.Text + " // " + dr["number"];
 					}
 				}
+				dataGridView1.DataSource=dt;
+				dataGridView1.Columns[0].Visible=false;
 				/*
 				if (dst.Tables[0].Rows.Count > 0){
 					Array array =dst.Tables[0].Rows[0].ItemArray;
 					label1.Text= array.GetValue(Convert.ToInt32(textBox1.Text)).ToString();
 				}
-				*/
+				 */
 			}
+		}
+		void Button2Click(object sender, EventArgs e)
+		{
+			/*Datos de conexion (conviene ponerlos en un archivo aparte)*/
+			string connection = "server=localhost; database=testcsharp;user=root; password=;";
+			
+			
+			MySqlConnection conexion = new MySqlConnection(connection);
+			
+			/*Intento conectar*/
+			try
+			{
+
+				conexion.Open();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			
+			/*Si pudo conectar*/
+			if (conexion.State==ConnectionState.Open){
+				
+				/*Creo un DataSet (puede contener varias tablas)*/
+				DataSet dst;
+				dst = new DataSet();
+				
+				/*Creo un DataTable (puede contener una tabla)*/
+				DataTable dt;
+				dt = new DataTable();
+				
+				/*Ejecuto la consulta y me traigo los datos al programa*/
+				MySqlDataAdapter adaptador;
+				adaptador = new MySqlDataAdapter("SELECT * FROM `sms` WHERE state='FALSE'",conexion);
+				
+				/*Cargo los datos de la consulta en el DataSet con el nombre interno de tabla elegido*/
+				adaptador.Fill(dst,"Phone_Table");
+				
+				/*Cargo la tabla al DataTable*/
+				dt=dst.Tables["Phone_Table"];
+				
+				MySqlCommand cmd = new MySqlCommand();
+				MySqlParameter parm;
+				
+
+				
+				
+				
+				foreach (DataRow dr in dt.Rows){
+					if (dr["state"].ToString() == "FALSE"){
+						cmd.Connection=conexion;
+						/*Modifico datos*/
+						cmd.CommandText="UPDATE `sms` SET state='TRUE' WHERE phone_id ='"+dr["phone_id"].ToString()+"'";
+						adaptador.SelectCommand=cmd;
+						adaptador.Fill(dst,"Phone_Table");
+
+					}
+				}
+				
+				
+			}
+		}
+		void DataGridView1CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+	
+		}
+		void MainFormLoad(object sender, EventArgs e)
+		{
+	
 		}
 
 	}
